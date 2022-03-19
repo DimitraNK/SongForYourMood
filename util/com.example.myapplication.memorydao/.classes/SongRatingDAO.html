@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SongRatingDAO</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.memorydao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SongRatingDAO (com.example.myapplication.memorydao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SongRatingDAO</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/ 12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.memorydao;
+<i>2</i>&nbsp;import com.example.myapplication.dao.SongRatingDAOStub;
+<i>3</i>&nbsp;import com.example.myapplication.domain.Song;
+<i>4</i>&nbsp;import com.example.myapplication.domain.SongRating;
+<i>5</i>&nbsp;import java.util.ArrayList;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;/**
+<i>9</i>&nbsp; * SongRatingDAO represents the ratings&#39; database
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;public class SongRatingDAO implements SongRatingDAOStub {
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    protected static List&lt;SongRating&gt; songRatingList = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>15</i>&nbsp;    public SongRatingDAO() {</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * find searches ratings and returns the ones that refer to the specific song.
+<i>20</i>&nbsp;     * @param songId is the id of the given song.
+<i>21</i>&nbsp;     * @return an arraylist containing all the ratings of song with id = songId.
+<i>22</i>&nbsp;     */
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    @Override
+<i>25</i>&nbsp;    public ArrayList&lt;SongRating&gt; find(int songId) {
+<b class="fc"><i>26</i>&nbsp;        ArrayList&lt;SongRating&gt; songRatings = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>27</i>&nbsp;        for (SongRating s : songRatingList) {</b>
+<b class="fc"><i>28</i>&nbsp;            if (s.getSong().getSongId() == songId) songRatings.add(s);</b>
+<b class="fc"><i>29</i>&nbsp;        }</b>
+<b class="fc"><i>30</i>&nbsp;        return songRatings;</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    /**
+<i>34</i>&nbsp;     * save stores a rating in the database.
+<i>35</i>&nbsp;     * @param rating is the rating to be stored.
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    @Override
+<i>39</i>&nbsp;    public void save(SongRating rating) {
+<b class="fc"><i>40</i>&nbsp;        songRatingList.add(rating);</b>
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    /**
+<i>44</i>&nbsp;     * delete erases a rating from the database.
+<i>45</i>&nbsp;     * @param rating is the rating to be deleted.
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    @Override
+<i>49</i>&nbsp;    public void delete(SongRating rating) {
+<b class="nc"><i>50</i>&nbsp;        songRatingList.remove(rating);</b>
+<b class="nc"><i>51</i>&nbsp;    }</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:07</div>
+</div>
+</body>
+</html>

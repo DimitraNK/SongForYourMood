@@ -1,0 +1,81 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SongRatingDAOStub</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SongRatingDAOStub (com.example.myapplication.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SongRatingDAOStub</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.myapplication.domain.SongRating;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.ArrayList;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * SongRatingDAOStub is the interface of the ratings&#39; database
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;public interface SongRatingDAOStub {
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * find searches ratings and returns the ones that refer to the specific song.
+<i>15</i>&nbsp;     * @param songId is the id of the given song.
+<i>16</i>&nbsp;     * @return an arraylist containing all the ratings of song with id = songId.
+<i>17</i>&nbsp;     */
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    ArrayList&lt;SongRating&gt; find(int songId);
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * save stores a rating in the database.
+<i>23</i>&nbsp;     * @param rating is the rating to be stored.
+<i>24</i>&nbsp;     */
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    void save(SongRating rating);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * delete erases a rating from the database.
+<i>30</i>&nbsp;     * @param rating is the rating to be deleted.
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    void delete(SongRating rating);
+<i>34</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:07</div>
+</div>
+</body>
+</html>

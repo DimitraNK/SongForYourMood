@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Mood</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Mood (com.example.myapplication.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Mood</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+  <span class="absValue">
+    (5/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    46.2%
+  </span>
+  <span class="absValue">
+    (12/ 26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.Arrays;
+<i>5</i>&nbsp;import com.example.myapplication.InvalidDataException;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Mood includes all the available options for moods and contains methods that manage them.
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;public enum Mood {</b>
+<b class="fc"><i>12</i>&nbsp;    HAPPY(&quot;happy&quot;), SAD(&quot;sad&quot;), ANGRY(&quot;angry&quot;), NOSTALGIC(&quot;nostalgic&quot;), STRESSED(&quot;stressed&quot;), CALM(&quot;calm&quot;);</b>
+<i>13</i>&nbsp;    String mood;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    Mood(){
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    }
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    Mood(String mood){</b>
+<b class="fc"><i>20</i>&nbsp;        this.mood = mood;</b>
+<b class="fc"><i>21</i>&nbsp;    }</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public static String getMoodAsString(Mood mood){
+<b class="fc"><i>24</i>&nbsp;        return mood.mood;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public void setMood(String m) throws InvalidDataException{
+<b class="nc"><i>28</i>&nbsp;        if (!isAvailable(m)) {</b>
+<b class="nc"><i>29</i>&nbsp;            throw new InvalidDataException(&quot;Invalid mood&quot;);</b>
+<i>30</i>&nbsp;        }
+<b class="nc"><i>31</i>&nbsp;        this.mood = m;</b>
+<b class="nc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public static Mood[] getAvailableMoods(){
+<b class="fc"><i>35</i>&nbsp;        Mood[] moods =  new Mood[6];</b>
+<b class="fc"><i>36</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>37</i>&nbsp;        for (Mood m: Mood.values()) {</b>
+<b class="fc"><i>38</i>&nbsp;            moods[i] = m;</b>
+<b class="fc"><i>39</i>&nbsp;            i++;</b>
+<i>40</i>&nbsp;        }
+<b class="fc"><i>41</i>&nbsp;        return moods;</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public void showPossibleMoods(){
+<b class="nc"><i>45</i>&nbsp;        System.out.println(&quot;Available Moods: &quot;);</b>
+<b class="nc"><i>46</i>&nbsp;        for (Mood m:Mood.values()){</b>
+<b class="nc"><i>47</i>&nbsp;            System.out.print(m.name());</b>
+<i>48</i>&nbsp;        }
+<b class="nc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public static boolean isAvailable(String md){
+<b class="nc"><i>52</i>&nbsp;        boolean found = false;</b>
+<b class="nc"><i>53</i>&nbsp;        for (Mood m: Mood.values()) {</b>
+<b class="nc"><i>54</i>&nbsp;            if (m.name().toLowerCase().equals(md)) {</b>
+<b class="nc"><i>55</i>&nbsp;                found = true;</b>
+<b class="nc"><i>56</i>&nbsp;                break;</b>
+<i>57</i>&nbsp;            }
+<i>58</i>&nbsp;        }
+<b class="nc"><i>59</i>&nbsp;        return found;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:07</div>
+</div>
+</body>
+</html>

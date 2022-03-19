@@ -1,0 +1,97 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLGeneric</id><coordinates><x>120</x><y>10</y><w>140</w><h>30</h></coordinates><panel_attributes>_:UI_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>30</y><w>30</w><h>1050</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1030</additional_attributes></element><element><id>UMLActor</id><coordinates><x>20</x><y>0</y><w>60</w><h>110</h></coordinates><panel_attributes>Χρήστης</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>100</y><w>30</w><h>970</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;950</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>140</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+εισαγωγή username 
+και password</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>180</x><y>160</y><w>20</w><h>810</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>360</x><y>10</y><w>180</w><h>30</h></coordinates><panel_attributes>_:Server_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>30</y><w>30</w><h>1050</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1030</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>160</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+checkFields()</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>440</x><y>180</y><w>20</w><h>770</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>650</x><y>10</y><w>180</w><h>30</h></coordinates><panel_attributes>_:Database_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>30</y><w>30</w><h>1050</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1030</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>200</y><w>800</w><h>810</h></coordinates><panel_attributes>alt
+--
+[όλα τα πεδία είναι συμπληρωμένα]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+
+[κάποιο πεδίο δεν είναι συμπληρωμένο]</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>240</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+πεδία συμπληρωμένα</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>930</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+μη συμπληρωμένο πεδίο </panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>40</x><y>160</y><w>20</w><h>810</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>950</y><w>150</w><h>60</h></coordinates><panel_attributes>lt=&lt;.
+μήνυμα για μη 
+συμπληρωμένο 
+πεδίο </panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>10</x><y>310</y><w>770</w><h>550</h></coordinates><panel_attributes>alt
+--
+[όλα τα πεδία είναι έγκυρα]
+
+
+
+
+-.
+
+[κάποιο πεδίο δεν είναι έγκυρο]</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>260</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+verifyUserInfo(User user)</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>270</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+findUserInfo(User user)</panel_attributes><additional_attributes>290;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>740</x><y>290</y><w>20</w><h>490</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>310</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+επιτυχής εύρεση χρήστη</panel_attributes><additional_attributes>10;20;290;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>350</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+έγκυρος χρήστης</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>370</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;.
+εμφάνιση αρχικής
+σελίδας</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>430</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+ανεπιτυχής εύρεση χρήστη</panel_attributes><additional_attributes>10;20;290;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>450</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+μη έγκυρος χρήστης</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>460</y><w>150</w><h>60</h></coordinates><panel_attributes>lt=&lt;.
+εμφάνιση σελίδας
+επαναφοράς 
+κωδικού</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>510</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+επιλογή ανάκτησης 
+κωδικού</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>530</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+αποστολή κωδικού</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>550</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+ο κωδικός εστάλη</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>570</y><w>150</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+παραπομπή 
+εισαγωγής
+κωδικού</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>620</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;.
+εισαγωγή
+κωδικού</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>660</y><w>150</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+παραπομπή 
+εισαγωγής
+νέου password</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>710</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;.
+εισαγωγή
+password</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>720</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+ενημέρωση αλλαγών</panel_attributes><additional_attributes>250;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>730</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+ενημέρωση αλλαγών</panel_attributes><additional_attributes>290;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>760</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+τέλος ενημέρωσης</panel_attributes><additional_attributes>10;20;290;20</additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>780</y><w>270</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+τέλος ενημέρωσης</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>800</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=&lt;.
+εμφάνιση σελίδας
+για login</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element></diagram>

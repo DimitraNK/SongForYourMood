@@ -1,0 +1,135 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: LoginPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.view.login</a> ]
+</div>
+
+<h1>Coverage Summary for Class: LoginPresenter (com.example.myapplication.view.login)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LoginPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.view.login;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.myapplication.domain.ManagementUser;
+<i>4</i>&nbsp;import com.example.myapplication.domain.User;
+<i>5</i>&nbsp;import com.example.myapplication.memorydao.UserDAO;
+<i>6</i>&nbsp;import com.example.myapplication.util.PasswordProtector;
+<i>7</i>&nbsp;import com.example.myapplication.util.UserInfoUtil;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class LoginPresenter {
+<i>10</i>&nbsp;    LoginView view;
+<i>11</i>&nbsp;    UserDAO userDAO;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<b class="nc"><i>14</i>&nbsp;    public LoginPresenter(LoginView view, UserDAO userDAO) {</b>
+<b class="nc"><i>15</i>&nbsp;        this.view = view;</b>
+<b class="nc"><i>16</i>&nbsp;        this.userDAO = userDAO;</b>
+<i>17</i>&nbsp;    }
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    void onLogin() {
+<b class="nc"><i>20</i>&nbsp;        if (view.getEmail().isEmpty() || view.getPassword().isEmpty()) {</b>
+<b class="nc"><i>21</i>&nbsp;            view.showEmptyFieldsDetected();</b>
+<i>22</i>&nbsp;            return;
+<i>23</i>&nbsp;        }
+<i>24</i>&nbsp;
+<b class="nc"><i>25</i>&nbsp;        if (!UserInfoUtil.isEmail(view.getEmail())) {</b>
+<b class="nc"><i>26</i>&nbsp;            view.showInvalidEmail();</b>
+<i>27</i>&nbsp;            return;
+<i>28</i>&nbsp;        }
+<i>29</i>&nbsp;
+<b class="nc"><i>30</i>&nbsp;        String encryptedPassword = PasswordProtector.md5(view.getPassword());</b>
+<b class="nc"><i>31</i>&nbsp;        User user = userDAO.getUserFromCredentials(view.getEmail(), encryptedPassword);</b>
+<i>32</i>&nbsp;
+<b class="nc"><i>33</i>&nbsp;        if(user instanceof ManagementUser) {</b>
+<b class="nc"><i>34</i>&nbsp;            view.showAdminLogin();</b>
+<i>35</i>&nbsp;        }
+<b class="nc"><i>36</i>&nbsp;        else if (user == null) {</b>
+<b class="nc"><i>37</i>&nbsp;            view.showFailedLogin();</b>
+<i>38</i>&nbsp;        } else  {
+<b class="nc"><i>39</i>&nbsp;            view.showSuccessLogin();</b>
+<i>40</i>&nbsp;        }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    void onCreateAnAccount() {
+<b class="nc"><i>45</i>&nbsp;        view.onCreateAnAccount();</b>
+<i>46</i>&nbsp;    }
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    void detach() {
+<b class="nc"><i>49</i>&nbsp;        view = null;</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:03</div>
+</div>
+</body>
+</html>

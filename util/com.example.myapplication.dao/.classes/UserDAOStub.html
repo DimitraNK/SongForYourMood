@@ -1,0 +1,95 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserDAOStub</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserDAOStub (com.example.myapplication.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">UserDAOStub</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.example.myapplication.domain.User;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;/**
+<i>6</i>&nbsp; * UserDAOStub is the interface of the users&#39; database.
+<i>7</i>&nbsp; */
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface UserDAOStub {
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * getUserFromCredentials searches the list of all users in order to find the one that
+<i>12</i>&nbsp;     * has the email and password given.
+<i>13</i>&nbsp;     * @param email is the email of the user.
+<i>14</i>&nbsp;     * @param password is the password of the user.
+<i>15</i>&nbsp;     * @return the user that matches the specific criteria.
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    User getUserFromCredentials(String email, String password);
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    /**
+<i>21</i>&nbsp;     * isEmailTaken searches if there is a user with the same email address stored in the database.
+<i>22</i>&nbsp;     * @param email is the email address of the user.
+<i>23</i>&nbsp;     * @return true if email already belongs to another user in the database.
+<i>24</i>&nbsp;     */
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    boolean isEmailTaken(String email);
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * register saves a user and all his data in the database.
+<i>30</i>&nbsp;     * @param user is the user to be stored.
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    void register(User user);
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    /**
+<i>36</i>&nbsp;     * delete erases a user from the database.
+<i>37</i>&nbsp;     * @param userId is the id of the user to be deleted.
+<i>38</i>&nbsp;     */
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    void delete(int userId);
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * nextId
+<i>44</i>&nbsp;     * @return the id of the next user.
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    int nextId();
+<i>48</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:07</div>
+</div>
+</body>
+</html>

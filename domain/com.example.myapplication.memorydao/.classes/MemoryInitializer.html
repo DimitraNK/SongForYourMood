@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MemoryInitializer</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.memorydao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MemoryInitializer (com.example.myapplication.memorydao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MemoryInitializer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.memorydao;
+<i>2</i>&nbsp;import com.example.myapplication.dao.MemoryInitializerStub;
+<i>3</i>&nbsp;import com.example.myapplication.domain.MusicSession;
+<i>4</i>&nbsp;import com.example.myapplication.domain.Song;
+<i>5</i>&nbsp;import com.example.myapplication.domain.SongRating;
+<i>6</i>&nbsp;import com.example.myapplication.domain.User;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.ArrayList;
+<i>9</i>&nbsp;import java.util.List;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;/**
+<i>12</i>&nbsp; * MemoryInitializer is responsible for initializing song, user and rating data.
+<i>13</i>&nbsp; */
+<i>14</i>&nbsp;
+<b class="nc"><i>15</i>&nbsp;public class MemoryInitializer extends MemoryInitializerStub {</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    /**
+<i>18</i>&nbsp;     * eraseAllData clears all users and songs lists
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    @Override
+<i>22</i>&nbsp;    public void eraseAllData() {
+<b class="nc"><i>23</i>&nbsp;        ArrayList&lt;MusicSession&gt; ms = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>24</i>&nbsp;        ArrayList&lt;SongRating&gt; sr = new ArrayList&lt;&gt;();</b>
+<b class="nc"><i>25</i>&nbsp;        for (User u : UserDAO.usersList){</b>
+<b class="nc"><i>26</i>&nbsp;            u.setMusicSessions(ms);</b>
+<b class="nc"><i>27</i>&nbsp;            u.setSongRatings(sr);</b>
+<b class="nc"><i>28</i>&nbsp;            u.setBandPreference(null);</b>
+<b class="nc"><i>29</i>&nbsp;            u.setGenrePreference(null);</b>
+<b class="nc"><i>30</i>&nbsp;        }</b>
+<b class="nc"><i>31</i>&nbsp;        UserDAO.usersList.clear();</b>
+<i>32</i>&nbsp;    }
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     * getSongDAO
+<i>36</i>&nbsp;     * @return data related to all songs stored in songDAO.
+<i>37</i>&nbsp;     */
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    @Override
+<i>40</i>&nbsp;    public SongDAO getSongDAO() {
+<b class="nc"><i>41</i>&nbsp;        return new SongDAO();</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * getSongRatingDAO
+<i>46</i>&nbsp;     * @return data related to all ratings stored in songRatingDAO.
+<i>47</i>&nbsp;     */
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    @Override
+<i>50</i>&nbsp;    public SongRatingDAO getSongRatingDAO() {
+<b class="nc"><i>51</i>&nbsp;        return new SongRatingDAO();</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    /**
+<i>55</i>&nbsp;     * getUserDAO
+<i>56</i>&nbsp;     * @return data related to all users stored in userDAO.
+<i>57</i>&nbsp;     */
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    @Override
+<i>60</i>&nbsp;    public UserDAO getUserDAO() {
+<b class="nc"><i>61</i>&nbsp;        return new UserDAO();</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:03</div>
+</div>
+</body>
+</html>

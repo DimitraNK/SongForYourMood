@@ -1,0 +1,145 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MusicSessionActivity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.view.musicSession</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MusicSessionActivity (com.example.myapplication.view.musicSession)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MusicSessionActivity</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.view.musicSession;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Bundle;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.appcompat.app.AppCompatActivity;
+<i>6</i>&nbsp;import androidx.databinding.DataBindingUtil;
+<i>7</i>&nbsp;import androidx.recyclerview.widget.LinearLayoutManager;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import com.example.myapplication.App;
+<i>10</i>&nbsp;import com.example.myapplication.InvalidDataException;
+<i>11</i>&nbsp;import com.example.myapplication.R;
+<i>12</i>&nbsp;import com.example.myapplication.databinding.LayoutActivityMusicSessionBinding;
+<i>13</i>&nbsp;import com.example.myapplication.domain.Mood;
+<i>14</i>&nbsp;import com.example.myapplication.domain.MusicSession;
+<i>15</i>&nbsp;import com.example.myapplication.domain.Song;
+<i>16</i>&nbsp;import com.example.myapplication.view.search.SearchableListAdapter;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import java.util.List;
+<i>19</i>&nbsp;
+<b class="nc"><i>20</i>&nbsp;public class MusicSessionActivity extends AppCompatActivity implements MusicSessionView{</b>
+<i>21</i>&nbsp;    LayoutActivityMusicSessionBinding binding;
+<i>22</i>&nbsp;    MusicSessionPresenter presenter;
+<i>23</i>&nbsp;    String mood;
+<i>24</i>&nbsp;    String genre;
+<i>25</i>&nbsp;    String intensity;
+<i>26</i>&nbsp;    String activity;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @Override
+<i>29</i>&nbsp;    protected void onCreate(Bundle savedInstanceState) {
+<b class="nc"><i>30</i>&nbsp;        super.onCreate(savedInstanceState);</b>
+<b class="nc"><i>31</i>&nbsp;        binding = DataBindingUtil.setContentView(this, R.layout.layout_activity_music_session);</b>
+<b class="nc"><i>32</i>&nbsp;        presenter = new MusicSessionPresenter(this, App.memoryInitializer.getSongDAO());</b>
+<b class="nc"><i>33</i>&nbsp;        Bundle extras = getIntent().getExtras();</b>
+<b class="nc"><i>34</i>&nbsp;        mood = extras.getString(&quot;mood&quot;);</b>
+<b class="nc"><i>35</i>&nbsp;        genre = extras.getString(&quot;genre&quot;);</b>
+<b class="nc"><i>36</i>&nbsp;        intensity = extras.getString(&quot;intensity&quot;);</b>
+<b class="nc"><i>37</i>&nbsp;        activity = extras.getString(&quot;activity&quot;);</b>
+<i>38</i>&nbsp;
+<b class="nc"><i>39</i>&nbsp;        setUpRecyclerView();</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    private void setUpRecyclerView() {
+<b class="nc"><i>43</i>&nbsp;        binding.songRv.setLayoutManager(new LinearLayoutManager(this));</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    @Override
+<i>47</i>&nbsp;    protected void onResume() {
+<b class="nc"><i>48</i>&nbsp;        super.onResume();</b>
+<b class="nc"><i>49</i>&nbsp;        presenter.loadAllSongs(mood,genre,intensity,activity);</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    @Override
+<i>53</i>&nbsp;    public void onFetchSongs(List&lt;Song&gt; songList) {
+<b class="nc"><i>54</i>&nbsp;        binding.songRv.setAdapter(new MusicSessionListAdapter(songList, this));</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    @Override
+<i>58</i>&nbsp;    public void noSongsMatch() {
+<b class="nc"><i>59</i>&nbsp;        String notFound = &quot;No songs match your choices... &quot;;</b>
+<b class="nc"><i>60</i>&nbsp;        binding.noSongsMatch.setText(notFound);</b>
+<i>61</i>&nbsp;    }
+<i>62</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:09</div>
+</div>
+</body>
+</html>

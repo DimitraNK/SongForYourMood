@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IntensityRatingPresenter</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.view.songRating</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IntensityRatingPresenter (com.example.myapplication.view.songRating)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">IntensityRatingPresenter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.view.songRating;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.myapplication.InvalidDataException;
+<i>8</i>&nbsp;import com.example.myapplication.domain.Activity;
+<i>9</i>&nbsp;import com.example.myapplication.domain.Intensity;
+<i>10</i>&nbsp;import com.example.myapplication.domain.Mood;
+<i>11</i>&nbsp;import com.example.myapplication.domain.Song;
+<i>12</i>&nbsp;import com.example.myapplication.domain.SongRating;
+<i>13</i>&nbsp;import com.example.myapplication.memorydao.SongDAO;
+<i>14</i>&nbsp;import com.example.myapplication.memorydao.SongRatingDAO;
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;import java.util.List;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;public class IntensityRatingPresenter {
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    IntensityRatingView view;
+<i>22</i>&nbsp;    SongRatingDAO songRatingDAO;
+<i>23</i>&nbsp;    SongDAO songDAO;
+<i>24</i>&nbsp;
+<b class="nc"><i>25</i>&nbsp;    public IntensityRatingPresenter(IntensityRatingView view,SongDAO songDAO,SongRatingDAO songRatingDAO) {</b>
+<b class="nc"><i>26</i>&nbsp;        this.view = view;</b>
+<b class="nc"><i>27</i>&nbsp;        this.songDAO = songDAO;</b>
+<b class="nc"><i>28</i>&nbsp;        this.songRatingDAO = songRatingDAO;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>32</i>&nbsp;    public void onClickIntensityRating(String intensity, String song, String mood, String activity) throws InvalidDataException {
+<b class="nc"><i>33</i>&nbsp;        addRating(intensity,song,mood,activity);</b>
+<b class="nc"><i>34</i>&nbsp;        view.handleIntensityRating();</b>
+<i>35</i>&nbsp;    }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>38</i>&nbsp;    public void addRating(String intensity, String song, String mood, String activity) throws InvalidDataException {
+<b class="nc"><i>39</i>&nbsp;        List&lt;Song&gt; allSongs = songDAO.findAll();</b>
+<b class="nc"><i>40</i>&nbsp;        for(Song s: allSongs){</b>
+<b class="nc"><i>41</i>&nbsp;            if(s.getTitle().equals(song)) {</b>
+<b class="nc"><i>42</i>&nbsp;                SongRating rating = new SongRating(s);</b>
+<b class="nc"><i>43</i>&nbsp;                rating.setMood(Mood.valueOf(mood.toUpperCase()));</b>
+<b class="nc"><i>44</i>&nbsp;                rating.setActivity(Activity.valueOf(activity.toUpperCase()));</b>
+<b class="nc"><i>45</i>&nbsp;                rating.setIntensity(Intensity.valueOf(intensity.toUpperCase()));</b>
+<b class="nc"><i>46</i>&nbsp;                songRatingDAO.save(rating);</b>
+<i>47</i>&nbsp;            }
+<b class="nc"><i>48</i>&nbsp;        }</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    void detach() {
+<b class="nc"><i>53</i>&nbsp;        view = null;</b>
+<i>54</i>&nbsp;    }
+<i>55</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:09</div>
+</div>
+</body>
+</html>

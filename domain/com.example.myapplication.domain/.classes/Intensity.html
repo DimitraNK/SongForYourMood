@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Intensity</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.domain</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Intensity (com.example.myapplication.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Intensity</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (6/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    69.2%
+  </span>
+  <span class="absValue">
+    (18/ 26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.domain;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.Arrays;
+<i>5</i>&nbsp;import com.example.myapplication.InvalidDataException;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * Intensity includes all the available options for levels of intensity and contains methods that manage them.
+<i>9</i>&nbsp; */
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;public enum Intensity {</b>
+<b class="fc"><i>12</i>&nbsp;    HIGH(&quot;high&quot;), MEDIUM(&quot;medium&quot;), LOW(&quot;low&quot;);</b>
+<i>13</i>&nbsp;    String intensity;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    Intensity(){
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    }
+<i>18</i>&nbsp;
+<b class="fc"><i>19</i>&nbsp;    Intensity(String intensity){</b>
+<b class="fc"><i>20</i>&nbsp;        this.intensity = intensity;</b>
+<b class="fc"><i>21</i>&nbsp;    }</b>
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    public static String getIntensityAsString(Intensity intensity){
+<b class="fc"><i>24</i>&nbsp;        return intensity.intensity;</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public void setIntensity(String i) throws InvalidDataException{
+<b class="nc"><i>28</i>&nbsp;        if (!isAvailable(i)) {</b>
+<b class="nc"><i>29</i>&nbsp;            throw new InvalidDataException(&quot;Invalid intensity&quot;);</b>
+<i>30</i>&nbsp;        }
+<b class="nc"><i>31</i>&nbsp;        this.intensity = i;</b>
+<b class="nc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public static Intensity[] getIntensityLevels(){
+<b class="fc"><i>35</i>&nbsp;        Intensity[] levels =  new Intensity[3];</b>
+<b class="fc"><i>36</i>&nbsp;        int i = 0;</b>
+<b class="fc"><i>37</i>&nbsp;        for (Intensity lev: Intensity.values()) {</b>
+<b class="fc"><i>38</i>&nbsp;            levels[i] = lev;</b>
+<b class="fc"><i>39</i>&nbsp;            i++;</b>
+<i>40</i>&nbsp;        }
+<b class="fc"><i>41</i>&nbsp;        return levels;</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    public void showIntensityOptions(){
+<b class="nc"><i>45</i>&nbsp;        System.out.println(&quot;Available Intensities: &quot;);</b>
+<b class="nc"><i>46</i>&nbsp;        for (Intensity l:Intensity.values()){</b>
+<b class="nc"><i>47</i>&nbsp;            System.out.print(l.name());</b>
+<i>48</i>&nbsp;        }
+<b class="nc"><i>49</i>&nbsp;    }</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    public static boolean isAvailable(String intensity){
+<b class="fc"><i>52</i>&nbsp;        boolean found = false;</b>
+<b class="fc"><i>53</i>&nbsp;        for (Intensity lev: Intensity.values()) {</b>
+<b class="fc"><i>54</i>&nbsp;            if (lev.name().toLowerCase().equals(intensity)) {</b>
+<b class="fc"><i>55</i>&nbsp;                found = true;</b>
+<b class="fc"><i>56</i>&nbsp;                break;</b>
+<i>57</i>&nbsp;            }
+<i>58</i>&nbsp;        }
+<b class="fc"><i>59</i>&nbsp;        return found;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:03</div>
+</div>
+</body>
+</html>

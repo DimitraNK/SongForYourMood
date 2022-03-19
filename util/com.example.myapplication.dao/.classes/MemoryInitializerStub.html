@@ -1,0 +1,491 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: MemoryInitializerStub</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.example.myapplication.dao</a> ]
+</div>
+
+<h1>Coverage Summary for Class: MemoryInitializerStub (com.example.myapplication.dao)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MemoryInitializerStub</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (279/ 279)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.example.myapplication.dao;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import android.os.Build;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import androidx.annotation.RequiresApi;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import com.example.myapplication.InvalidDataException;
+<i>8</i>&nbsp;import com.example.myapplication.domain.Activity;
+<i>9</i>&nbsp;import com.example.myapplication.domain.Band;
+<i>10</i>&nbsp;import com.example.myapplication.domain.BandPreference;
+<i>11</i>&nbsp;import com.example.myapplication.domain.Genre;
+<i>12</i>&nbsp;import com.example.myapplication.domain.GenrePreference;
+<i>13</i>&nbsp;import com.example.myapplication.domain.Intensity;
+<i>14</i>&nbsp;import com.example.myapplication.domain.ManagementUser;
+<i>15</i>&nbsp;import com.example.myapplication.domain.Mood;
+<i>16</i>&nbsp;import com.example.myapplication.domain.Song;
+<i>17</i>&nbsp;import com.example.myapplication.domain.SongRating;
+<i>18</i>&nbsp;import com.example.myapplication.domain.User;
+<i>19</i>&nbsp;import com.example.myapplication.memorydao.SongDAO;
+<i>20</i>&nbsp;import com.example.myapplication.memorydao.SongRatingDAO;
+<i>21</i>&nbsp;import com.example.myapplication.memorydao.UserDAO;
+<i>22</i>&nbsp;import com.example.myapplication.util.PasswordProtector;
+<i>23</i>&nbsp;import com.example.myapplication.util.Statistics;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;import java.util.ArrayList;
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;/**
+<i>28</i>&nbsp; * Abstract class that initializes song, user and rating data
+<i>29</i>&nbsp; */
+<b class="fc"><i>30</i>&nbsp;public abstract class MemoryInitializerStub {</b>
+<i>31</i>&nbsp;
+<i>32</i>&nbsp;    /**
+<i>33</i>&nbsp;     * eraseAllData clears all users and songs lists
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public abstract void eraseAllData();
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    /**
+<i>39</i>&nbsp;     * prepareData creates management users, users, bands, songs and ratings and stores them in userDAO,
+<i>40</i>&nbsp;     * songDAO and songRatingDAO.
+<i>41</i>&nbsp;     * @throws InvalidDataException in case of wrong data given.
+<i>42</i>&nbsp;     */
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    @RequiresApi(api = Build.VERSION_CODES.O)
+<i>45</i>&nbsp;    public void prepareData() throws InvalidDataException {
+<b class="fc"><i>46</i>&nbsp;        eraseAllData();</b>
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;        ManagementUser managementUser1 = new ManagementUser(&quot;JohnDoe@gmail.com&quot;,&quot;JohnDoe&quot;,PasswordProtector.md5(&quot;111&quot;),&quot;responsible for adding and deleting app data&quot;,1);</b>
+<b class="fc"><i>49</i>&nbsp;        ManagementUser managementUser2 = new ManagementUser(&quot;JaneDoe@gmail.com&quot;,&quot;JaneDoe&quot;,PasswordProtector.md5(&quot;222&quot;),&quot;responsible for adding and deleting app data&quot;,2);</b>
+<b class="fc"><i>50</i>&nbsp;        getUserDAO().register(managementUser1);</b>
+<b class="fc"><i>51</i>&nbsp;        getUserDAO().register(managementUser2);</b>
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;        Genre[] genres = {Genre.JAZZ, Genre.ROCK};</b>
+<b class="fc"><i>54</i>&nbsp;        GenrePreference gp =  new GenrePreference(genres);</b>
+<b class="fc"><i>55</i>&nbsp;        Band[] bands = new Band[5];</b>
+<b class="fc"><i>56</i>&nbsp;        Band band1 = new Band(&quot;Nirvana&quot;,3,Genre.ROCK);</b>
+<b class="fc"><i>57</i>&nbsp;        bands[0] = band1;</b>
+<b class="fc"><i>58</i>&nbsp;        Band band2 = new Band(&quot;U2&quot;,4,Genre.ROCK);</b>
+<b class="fc"><i>59</i>&nbsp;        bands[1] = band2;</b>
+<b class="fc"><i>60</i>&nbsp;        BandPreference bp =  new BandPreference(bands);</b>
+<b class="fc"><i>61</i>&nbsp;        User user1 = new User(&quot;John&quot;, &quot;Somebody&quot;, &quot;johnSomebody@gmail.com&quot;, &quot;johnS&quot;, PasswordProtector.md5(&quot;js2000&quot;), gp, bp);</b>
+<i>62</i>&nbsp;
+<b class="fc"><i>63</i>&nbsp;        Genre[] genres2 = {Genre.JAZZ, Genre.ROCK};</b>
+<b class="fc"><i>64</i>&nbsp;        GenrePreference gp2 =  new GenrePreference(genres);</b>
+<b class="fc"><i>65</i>&nbsp;        Band[] bands2 = new Band[5];</b>
+<b class="fc"><i>66</i>&nbsp;        Band banda = new Band(&quot;Nirvana&quot;,3,Genre.ROCK);</b>
+<b class="fc"><i>67</i>&nbsp;        bands[0] = banda;</b>
+<b class="fc"><i>68</i>&nbsp;        Band bandb = new Band(&quot;U2&quot;,4,Genre.ROCK);</b>
+<b class="fc"><i>69</i>&nbsp;        bands[1] = bandb;</b>
+<b class="fc"><i>70</i>&nbsp;        BandPreference bp2 =  new BandPreference(bands);</b>
+<b class="fc"><i>71</i>&nbsp;        User user2 = new User(&quot;Jacob&quot;, &quot;Else&quot;, &quot;jacobElse@gmail.com&quot;, &quot;jacobE&quot;, PasswordProtector.md5(&quot;je1999&quot;), gp2, bp2);</b>
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;        getUserDAO().register(user1);</b>
+<b class="fc"><i>74</i>&nbsp;        getUserDAO().register(user2);</b>
+<i>75</i>&nbsp;
+<b class="fc"><i>76</i>&nbsp;        Band bandaki1 = new Band(&quot;Aerosmith&quot;, 5, Genre.ROCK);</b>
+<b class="fc"><i>77</i>&nbsp;        Song song1 = new Song(&quot;Dream On&quot;, Genre.ROCK, 1973, bandaki1,&quot;https://youtu.be/twPtvZuBrAg&quot;,1);</b>
+<b class="fc"><i>78</i>&nbsp;        getSongDAO().save(song1);</b>
+<i>79</i>&nbsp;
+<b class="fc"><i>80</i>&nbsp;        Band bandaki2 = new Band(&quot;ABBA&quot;, 4, Genre.DISCO);</b>
+<b class="fc"><i>81</i>&nbsp;        Song song2 = new Song(&quot;Dancing Queen&quot;, Genre.DISCO, 1976, bandaki2,&quot;https://youtu.be/3ij_pUtJJrw&quot;,2);</b>
+<b class="fc"><i>82</i>&nbsp;        getSongDAO().save(song2);</b>
+<i>83</i>&nbsp;
+<b class="fc"><i>84</i>&nbsp;        Band bandaki3 = new Band(&quot;Blur&quot;, 4, Genre.POP);</b>
+<b class="fc"><i>85</i>&nbsp;        Song song3 = new Song(&quot;Girls And Boys&quot;, Genre.POP, 1994, bandaki3,&quot;https://youtu.be/WDswiT87oo8&quot;,3);</b>
+<b class="fc"><i>86</i>&nbsp;        getSongDAO().save(song3);</b>
+<i>87</i>&nbsp;
+<b class="fc"><i>88</i>&nbsp;        Band bandaki4 = new Band(&quot;Nina Simone&quot;, 1, Genre.JAZZ);</b>
+<b class="fc"><i>89</i>&nbsp;        Song song4 = new Song(&quot;Feeling Good&quot;, Genre.JAZZ, 1965, bandaki4,&quot;https://youtu.be/D5Y11hwjMNs&quot;,4);</b>
+<b class="fc"><i>90</i>&nbsp;        getSongDAO().save(song4);</b>
+<i>91</i>&nbsp;
+<b class="fc"><i>92</i>&nbsp;        Band bandaki5 = new Band(&quot;Eminem&quot;, 1, Genre.RAP);</b>
+<b class="fc"><i>93</i>&nbsp;        Song song5 = new Song(&quot;The Real Slim Shady&quot;, Genre.RAP, 2000, bandaki5,&quot;https://youtu.be/eJO5HU_7_1w&quot;,5);</b>
+<b class="fc"><i>94</i>&nbsp;        getSongDAO().save(song5);</b>
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;        Band bandaki6 = new Band(&quot;Tin Pan Alley (Cliff Friend and Dave Franklin)&quot;, 2, Genre.CLASSICAL);</b>
+<b class="fc"><i>97</i>&nbsp;        Song song6 = new Song(&quot;The Merry-Go-Round Broke Down&quot;, Genre.CLASSICAL, 1937, bandaki6,&quot;https://youtu.be/oBgAHK36sx4&quot;,6);</b>
+<b class="fc"><i>98</i>&nbsp;        getSongDAO().save(song6);</b>
+<i>99</i>&nbsp;
+<b class="fc"><i>100</i>&nbsp;        Band bandaki7 = new Band(&quot;La Femme&quot;, 7, Genre.POP);</b>
+<b class="fc"><i>101</i>&nbsp;        Song song7 = new Song(&quot;Mystere&quot;, Genre.POP, 2016, bandaki7,&quot;https://youtu.be/jTMSguDFlMI&quot;,7);</b>
+<b class="fc"><i>102</i>&nbsp;        getSongDAO().save(song7);</b>
+<i>103</i>&nbsp;
+<b class="fc"><i>104</i>&nbsp;        Band bandaki8 = new Band(&quot;Blondie&quot;, 6, Genre.ROCK);</b>
+<b class="fc"><i>105</i>&nbsp;        Song song8 = new Song(&quot;Heart Of Glass&quot;, Genre.ROCK, 1979, bandaki8,&quot;https://youtu.be/WGU_4-5RaxU&quot;,8);</b>
+<b class="fc"><i>106</i>&nbsp;        getSongDAO().save(song8);</b>
+<i>107</i>&nbsp;
+<b class="fc"><i>108</i>&nbsp;        Band bandaki9 = new Band(&quot;Nirvana&quot;,3,Genre.ROCK);</b>
+<b class="fc"><i>109</i>&nbsp;        Song song9 = new Song(&quot;Heart-Shaped Box&quot;, Genre.ROCK, 1993, bandaki9,&quot;https://youtu.be/n6P0SitRwy8&quot;,9);</b>
+<b class="fc"><i>110</i>&nbsp;        getSongDAO().save(song9);</b>
+<i>111</i>&nbsp;
+<b class="fc"><i>112</i>&nbsp;        Band bandaki10 = new Band(&quot;U2&quot;,4,Genre.ROCK);</b>
+<b class="fc"><i>113</i>&nbsp;        Song song10 = new Song(&quot;Where the streets have no name&quot;, Genre.ROCK, 1987, bandaki10,&quot;https://youtu.be/GzZWSrr5wFI&quot;,10);</b>
+<b class="fc"><i>114</i>&nbsp;        getSongDAO().save(song10);</b>
+<i>115</i>&nbsp;
+<b class="fc"><i>116</i>&nbsp;        Band bandaki11 = new Band(&quot;Red Hot Chili Peppers&quot;,4,Genre.ROCK);</b>
+<b class="fc"><i>117</i>&nbsp;        Song song11 = new Song(&quot;Dark necessities&quot;, Genre.ROCK, 2016, bandaki11,&quot;https://youtu.be/qJ_Tw0w3lLA&quot;,11);</b>
+<b class="fc"><i>118</i>&nbsp;        getSongDAO().save(song11);</b>
+<i>119</i>&nbsp;
+<b class="fc"><i>120</i>&nbsp;        Band bandaki12 = new Band(&quot;Linkin Park&quot;,6,Genre.ROCK);</b>
+<b class="fc"><i>121</i>&nbsp;        Song song12 = new Song(&quot;Burn it down&quot;, Genre.ROCK, 2012, bandaki12,&quot;https://youtu.be/dxytyRy-O1k&quot;,12);</b>
+<b class="fc"><i>122</i>&nbsp;        getSongDAO().save(song12);</b>
+<i>123</i>&nbsp;
+<b class="fc"><i>124</i>&nbsp;        Band bandaki13 = new Band(&quot;R.E.M&quot;,4,Genre.ROCK);</b>
+<b class="fc"><i>125</i>&nbsp;        Song song13 = new Song(&quot;Radio Free Europe&quot;, Genre.ROCK, 1981, bandaki13,&quot;https://youtu.be/B7Dekd24kMM&quot;,13);</b>
+<b class="fc"><i>126</i>&nbsp;        getSongDAO().save(song13);</b>
+<i>127</i>&nbsp;
+<b class="fc"><i>128</i>&nbsp;        Statistics.initialize();</b>
+<i>129</i>&nbsp;
+<i>130</i>&nbsp;
+<i>131</i>&nbsp;
+<b class="fc"><i>132</i>&nbsp;        SongRating rating1 = new SongRating(song9);</b>
+<b class="fc"><i>133</i>&nbsp;        rating1.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>134</i>&nbsp;        rating1.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>135</i>&nbsp;        rating1.setIntensity(Intensity.MEDIUM);</b>
+<i>136</i>&nbsp;
+<b class="fc"><i>137</i>&nbsp;        SongRating rating2 = new SongRating(song1);</b>
+<b class="fc"><i>138</i>&nbsp;        rating2.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>139</i>&nbsp;        rating2.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>140</i>&nbsp;        rating2.setIntensity(Intensity.MEDIUM);</b>
+<i>141</i>&nbsp;
+<b class="fc"><i>142</i>&nbsp;        SongRating rating3 = new SongRating(song2);</b>
+<b class="fc"><i>143</i>&nbsp;        rating3.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>144</i>&nbsp;        rating3.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>145</i>&nbsp;        rating3.setIntensity(Intensity.HIGH);</b>
+<i>146</i>&nbsp;
+<b class="fc"><i>147</i>&nbsp;        SongRating rating4 = new SongRating(song3);</b>
+<b class="fc"><i>148</i>&nbsp;        rating4.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>149</i>&nbsp;        rating4.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>150</i>&nbsp;        rating4.setIntensity(Intensity.MEDIUM);</b>
+<i>151</i>&nbsp;
+<b class="fc"><i>152</i>&nbsp;        SongRating rating5 = new SongRating(song7);</b>
+<b class="fc"><i>153</i>&nbsp;        rating5.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>154</i>&nbsp;        rating5.setActivity(Activity.WORK);</b>
+<b class="fc"><i>155</i>&nbsp;        rating5.setIntensity(Intensity.LOW);</b>
+<i>156</i>&nbsp;
+<b class="fc"><i>157</i>&nbsp;        SongRating rating6 = new SongRating(song4);</b>
+<b class="fc"><i>158</i>&nbsp;        rating6.setMood(Mood.CALM);</b>
+<b class="fc"><i>159</i>&nbsp;        rating6.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>160</i>&nbsp;        rating6.setIntensity(Intensity.LOW);</b>
+<i>161</i>&nbsp;
+<b class="fc"><i>162</i>&nbsp;        SongRating rating7 = new SongRating(song5);</b>
+<b class="fc"><i>163</i>&nbsp;        rating7.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>164</i>&nbsp;        rating7.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>165</i>&nbsp;        rating7.setIntensity(Intensity.HIGH);</b>
+<i>166</i>&nbsp;
+<b class="fc"><i>167</i>&nbsp;        SongRating rating8 = new SongRating(song6);</b>
+<b class="fc"><i>168</i>&nbsp;        rating8.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>169</i>&nbsp;        rating8.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>170</i>&nbsp;        rating8.setIntensity(Intensity.MEDIUM);</b>
+<i>171</i>&nbsp;
+<b class="fc"><i>172</i>&nbsp;        SongRating rating9 = new SongRating(song8);</b>
+<b class="fc"><i>173</i>&nbsp;        rating9.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>174</i>&nbsp;        rating9.setActivity(Activity.WORK);</b>
+<b class="fc"><i>175</i>&nbsp;        rating9.setIntensity(Intensity.MEDIUM);</b>
+<i>176</i>&nbsp;
+<b class="fc"><i>177</i>&nbsp;        SongRating rating10 = new SongRating(song10);</b>
+<b class="fc"><i>178</i>&nbsp;        rating10.setMood(Mood.SAD);</b>
+<b class="fc"><i>179</i>&nbsp;        rating10.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>180</i>&nbsp;        rating10.setIntensity(Intensity.LOW);</b>
+<i>181</i>&nbsp;
+<b class="fc"><i>182</i>&nbsp;        SongRating rating11 = new SongRating(song11);</b>
+<b class="fc"><i>183</i>&nbsp;        rating11.setMood(Mood.CALM);</b>
+<b class="fc"><i>184</i>&nbsp;        rating11.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>185</i>&nbsp;        rating11.setIntensity(Intensity.LOW);</b>
+<i>186</i>&nbsp;
+<b class="fc"><i>187</i>&nbsp;        SongRating rating12 = new SongRating(song12);</b>
+<b class="fc"><i>188</i>&nbsp;        rating12.setMood(Mood.ANGRY);</b>
+<b class="fc"><i>189</i>&nbsp;        rating12.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>190</i>&nbsp;        rating12.setIntensity(Intensity.MEDIUM);</b>
+<i>191</i>&nbsp;
+<b class="fc"><i>192</i>&nbsp;        SongRating rating13 = new SongRating(song13);</b>
+<b class="fc"><i>193</i>&nbsp;        rating13.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>194</i>&nbsp;        rating13.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>195</i>&nbsp;        rating13.setIntensity(Intensity.LOW);</b>
+<i>196</i>&nbsp;
+<b class="fc"><i>197</i>&nbsp;        SongRating rating14 = new SongRating(song9);</b>
+<b class="fc"><i>198</i>&nbsp;        rating14.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>199</i>&nbsp;        rating14.setActivity(Activity.WORK);</b>
+<b class="fc"><i>200</i>&nbsp;        rating14.setIntensity(Intensity.LOW);</b>
+<i>201</i>&nbsp;
+<b class="fc"><i>202</i>&nbsp;        SongRating rating15 = new SongRating(song1);</b>
+<b class="fc"><i>203</i>&nbsp;        rating15.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>204</i>&nbsp;        rating15.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>205</i>&nbsp;        rating15.setIntensity(Intensity.MEDIUM);</b>
+<i>206</i>&nbsp;
+<b class="fc"><i>207</i>&nbsp;        SongRating rating16 = new SongRating(song2);</b>
+<b class="fc"><i>208</i>&nbsp;        rating16.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>209</i>&nbsp;        rating16.setActivity(Activity.HOBBY);</b>
+<b class="fc"><i>210</i>&nbsp;        rating16.setIntensity(Intensity.LOW);</b>
+<i>211</i>&nbsp;
+<b class="fc"><i>212</i>&nbsp;        SongRating rating17 = new SongRating(song3);</b>
+<b class="fc"><i>213</i>&nbsp;        rating17.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>214</i>&nbsp;        rating17.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>215</i>&nbsp;        rating17.setIntensity(Intensity.LOW);</b>
+<i>216</i>&nbsp;
+<b class="fc"><i>217</i>&nbsp;        SongRating rating18 = new SongRating(song7);</b>
+<b class="fc"><i>218</i>&nbsp;        rating18.setMood(Mood.CALM);</b>
+<b class="fc"><i>219</i>&nbsp;        rating18.setActivity(Activity.WORK);</b>
+<b class="fc"><i>220</i>&nbsp;        rating18.setIntensity(Intensity.MEDIUM);</b>
+<i>221</i>&nbsp;
+<b class="fc"><i>222</i>&nbsp;        SongRating rating19 = new SongRating(song4);</b>
+<b class="fc"><i>223</i>&nbsp;        rating19.setMood(Mood.CALM);</b>
+<b class="fc"><i>224</i>&nbsp;        rating19.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>225</i>&nbsp;        rating19.setIntensity(Intensity.LOW);</b>
+<i>226</i>&nbsp;
+<b class="fc"><i>227</i>&nbsp;        SongRating rating20 = new SongRating(song5);</b>
+<b class="fc"><i>228</i>&nbsp;        rating20.setMood(Mood.ANGRY);</b>
+<b class="fc"><i>229</i>&nbsp;        rating20.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>230</i>&nbsp;        rating20.setIntensity(Intensity.MEDIUM);</b>
+<i>231</i>&nbsp;
+<b class="fc"><i>232</i>&nbsp;        SongRating rating21 = new SongRating(song6);</b>
+<b class="fc"><i>233</i>&nbsp;        rating21.setMood(Mood.SAD);</b>
+<b class="fc"><i>234</i>&nbsp;        rating21.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>235</i>&nbsp;        rating21.setIntensity(Intensity.LOW);</b>
+<i>236</i>&nbsp;
+<b class="fc"><i>237</i>&nbsp;        SongRating rating22 = new SongRating(song8);</b>
+<b class="fc"><i>238</i>&nbsp;        rating22.setMood(Mood.CALM);</b>
+<b class="fc"><i>239</i>&nbsp;        rating22.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>240</i>&nbsp;        rating22.setIntensity(Intensity.MEDIUM);</b>
+<i>241</i>&nbsp;
+<b class="fc"><i>242</i>&nbsp;        SongRating rating23 = new SongRating(song10);</b>
+<b class="fc"><i>243</i>&nbsp;        rating23.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>244</i>&nbsp;        rating23.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>245</i>&nbsp;        rating23.setIntensity(Intensity.MEDIUM);</b>
+<i>246</i>&nbsp;
+<b class="fc"><i>247</i>&nbsp;        SongRating rating24 = new SongRating(song11);</b>
+<b class="fc"><i>248</i>&nbsp;        rating24.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>249</i>&nbsp;        rating24.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>250</i>&nbsp;        rating24.setIntensity(Intensity.MEDIUM);</b>
+<i>251</i>&nbsp;
+<b class="fc"><i>252</i>&nbsp;        SongRating rating25 = new SongRating(song12);</b>
+<b class="fc"><i>253</i>&nbsp;        rating25.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>254</i>&nbsp;        rating25.setActivity(Activity.WORK);</b>
+<b class="fc"><i>255</i>&nbsp;        rating25.setIntensity(Intensity.HIGH);</b>
+<i>256</i>&nbsp;
+<b class="fc"><i>257</i>&nbsp;        SongRating rating26 = new SongRating(song13);</b>
+<b class="fc"><i>258</i>&nbsp;        rating26.setMood(Mood.CALM);</b>
+<b class="fc"><i>259</i>&nbsp;        rating26.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>260</i>&nbsp;        rating26.setIntensity(Intensity.MEDIUM);</b>
+<i>261</i>&nbsp;
+<b class="fc"><i>262</i>&nbsp;        SongRating rating27 = new SongRating(song9);</b>
+<b class="fc"><i>263</i>&nbsp;        rating27.setMood(Mood.ANGRY);</b>
+<b class="fc"><i>264</i>&nbsp;        rating27.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>265</i>&nbsp;        rating27.setIntensity(Intensity.MEDIUM);</b>
+<i>266</i>&nbsp;
+<b class="fc"><i>267</i>&nbsp;        SongRating rating28 = new SongRating(song1);</b>
+<b class="fc"><i>268</i>&nbsp;        rating28.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>269</i>&nbsp;        rating28.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>270</i>&nbsp;        rating28.setIntensity(Intensity.MEDIUM);</b>
+<i>271</i>&nbsp;
+<b class="fc"><i>272</i>&nbsp;        SongRating rating30 = new SongRating(song2);</b>
+<b class="fc"><i>273</i>&nbsp;        rating30.setMood(Mood.ANGRY);</b>
+<b class="fc"><i>274</i>&nbsp;        rating30.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>275</i>&nbsp;        rating30.setIntensity(Intensity.MEDIUM);</b>
+<i>276</i>&nbsp;
+<b class="fc"><i>277</i>&nbsp;        SongRating rating31 = new SongRating(song3);</b>
+<b class="fc"><i>278</i>&nbsp;        rating31.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>279</i>&nbsp;        rating31.setActivity(Activity.WORKING_OUT);</b>
+<b class="fc"><i>280</i>&nbsp;        rating31.setIntensity(Intensity.MEDIUM);</b>
+<i>281</i>&nbsp;
+<b class="fc"><i>282</i>&nbsp;        SongRating rating32 = new SongRating(song7);</b>
+<b class="fc"><i>283</i>&nbsp;        rating32.setMood(Mood.CALM);</b>
+<b class="fc"><i>284</i>&nbsp;        rating32.setActivity(Activity.WORK);</b>
+<b class="fc"><i>285</i>&nbsp;        rating32.setIntensity(Intensity.MEDIUM);</b>
+<i>286</i>&nbsp;
+<b class="fc"><i>287</i>&nbsp;        SongRating rating33 = new SongRating(song4);</b>
+<b class="fc"><i>288</i>&nbsp;        rating33.setMood(Mood.CALM);</b>
+<b class="fc"><i>289</i>&nbsp;        rating33.setActivity(Activity.HOBBY);</b>
+<b class="fc"><i>290</i>&nbsp;        rating33.setIntensity(Intensity.LOW);</b>
+<i>291</i>&nbsp;
+<b class="fc"><i>292</i>&nbsp;        SongRating rating34 = new SongRating(song5);</b>
+<b class="fc"><i>293</i>&nbsp;        rating34.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>294</i>&nbsp;        rating34.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>295</i>&nbsp;        rating34.setIntensity(Intensity.HIGH);</b>
+<i>296</i>&nbsp;
+<b class="fc"><i>297</i>&nbsp;        SongRating rating35 = new SongRating(song6);</b>
+<b class="fc"><i>298</i>&nbsp;        rating35.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>299</i>&nbsp;        rating35.setActivity(Activity.HOBBY);</b>
+<b class="fc"><i>300</i>&nbsp;        rating35.setIntensity(Intensity.MEDIUM);</b>
+<i>301</i>&nbsp;
+<b class="fc"><i>302</i>&nbsp;        SongRating rating36 = new SongRating(song8);</b>
+<b class="fc"><i>303</i>&nbsp;        rating36.setMood(Mood.HAPPY);</b>
+<b class="fc"><i>304</i>&nbsp;        rating36.setActivity(Activity.PARTY);</b>
+<b class="fc"><i>305</i>&nbsp;        rating36.setIntensity(Intensity.MEDIUM);</b>
+<i>306</i>&nbsp;
+<b class="fc"><i>307</i>&nbsp;        SongRating rating37 = new SongRating(song10);</b>
+<b class="fc"><i>308</i>&nbsp;        rating37.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>309</i>&nbsp;        rating37.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>310</i>&nbsp;        rating37.setIntensity(Intensity.LOW);</b>
+<i>311</i>&nbsp;
+<b class="fc"><i>312</i>&nbsp;        SongRating rating38 = new SongRating(song11);</b>
+<b class="fc"><i>313</i>&nbsp;        rating38.setMood(Mood.CALM);</b>
+<b class="fc"><i>314</i>&nbsp;        rating38.setActivity(Activity.WORK);</b>
+<b class="fc"><i>315</i>&nbsp;        rating38.setIntensity(Intensity.LOW);</b>
+<i>316</i>&nbsp;
+<b class="fc"><i>317</i>&nbsp;        SongRating rating39 = new SongRating(song12);</b>
+<b class="fc"><i>318</i>&nbsp;        rating39.setMood(Mood.STRESSED);</b>
+<b class="fc"><i>319</i>&nbsp;        rating39.setActivity(Activity.NO_ACTIVITY);</b>
+<b class="fc"><i>320</i>&nbsp;        rating39.setIntensity(Intensity.MEDIUM);</b>
+<i>321</i>&nbsp;
+<b class="fc"><i>322</i>&nbsp;        SongRating rating29 = new SongRating(song13);</b>
+<b class="fc"><i>323</i>&nbsp;        rating29.setMood(Mood.NOSTALGIC);</b>
+<b class="fc"><i>324</i>&nbsp;        rating29.setActivity(Activity.STUDYING);</b>
+<b class="fc"><i>325</i>&nbsp;        rating29.setIntensity(Intensity.LOW);</b>
+<i>326</i>&nbsp;
+<b class="fc"><i>327</i>&nbsp;        getSongRatingDAO().save(rating1);</b>
+<b class="fc"><i>328</i>&nbsp;        getSongRatingDAO().save(rating2);</b>
+<b class="fc"><i>329</i>&nbsp;        getSongRatingDAO().save(rating3);</b>
+<b class="fc"><i>330</i>&nbsp;        getSongRatingDAO().save(rating4);</b>
+<b class="fc"><i>331</i>&nbsp;        getSongRatingDAO().save(rating5);</b>
+<b class="fc"><i>332</i>&nbsp;        getSongRatingDAO().save(rating6);</b>
+<b class="fc"><i>333</i>&nbsp;        getSongRatingDAO().save(rating7);</b>
+<b class="fc"><i>334</i>&nbsp;        getSongRatingDAO().save(rating8);</b>
+<b class="fc"><i>335</i>&nbsp;        getSongRatingDAO().save(rating9);</b>
+<b class="fc"><i>336</i>&nbsp;        getSongRatingDAO().save(rating10);</b>
+<b class="fc"><i>337</i>&nbsp;        getSongRatingDAO().save(rating11);</b>
+<b class="fc"><i>338</i>&nbsp;        getSongRatingDAO().save(rating12);</b>
+<b class="fc"><i>339</i>&nbsp;        getSongRatingDAO().save(rating13);</b>
+<b class="fc"><i>340</i>&nbsp;        getSongRatingDAO().save(rating14);</b>
+<b class="fc"><i>341</i>&nbsp;        getSongRatingDAO().save(rating15);</b>
+<b class="fc"><i>342</i>&nbsp;        getSongRatingDAO().save(rating16);</b>
+<b class="fc"><i>343</i>&nbsp;        getSongRatingDAO().save(rating17);</b>
+<b class="fc"><i>344</i>&nbsp;        getSongRatingDAO().save(rating18);</b>
+<b class="fc"><i>345</i>&nbsp;        getSongRatingDAO().save(rating19);</b>
+<b class="fc"><i>346</i>&nbsp;        getSongRatingDAO().save(rating20);</b>
+<b class="fc"><i>347</i>&nbsp;        getSongRatingDAO().save(rating21);</b>
+<b class="fc"><i>348</i>&nbsp;        getSongRatingDAO().save(rating22);</b>
+<b class="fc"><i>349</i>&nbsp;        getSongRatingDAO().save(rating23);</b>
+<b class="fc"><i>350</i>&nbsp;        getSongRatingDAO().save(rating24);</b>
+<b class="fc"><i>351</i>&nbsp;        getSongRatingDAO().save(rating25);</b>
+<b class="fc"><i>352</i>&nbsp;        getSongRatingDAO().save(rating26);</b>
+<b class="fc"><i>353</i>&nbsp;        getSongRatingDAO().save(rating27);</b>
+<b class="fc"><i>354</i>&nbsp;        getSongRatingDAO().save(rating28);</b>
+<b class="fc"><i>355</i>&nbsp;        getSongRatingDAO().save(rating29);</b>
+<b class="fc"><i>356</i>&nbsp;        getSongRatingDAO().save(rating30);</b>
+<b class="fc"><i>357</i>&nbsp;        getSongRatingDAO().save(rating31);</b>
+<b class="fc"><i>358</i>&nbsp;        getSongRatingDAO().save(rating32);</b>
+<b class="fc"><i>359</i>&nbsp;        getSongRatingDAO().save(rating33);</b>
+<b class="fc"><i>360</i>&nbsp;        getSongRatingDAO().save(rating34);</b>
+<b class="fc"><i>361</i>&nbsp;        getSongRatingDAO().save(rating35);</b>
+<b class="fc"><i>362</i>&nbsp;        getSongRatingDAO().save(rating36);</b>
+<b class="fc"><i>363</i>&nbsp;        getSongRatingDAO().save(rating37);</b>
+<b class="fc"><i>364</i>&nbsp;        getSongRatingDAO().save(rating38);</b>
+<b class="fc"><i>365</i>&nbsp;        getSongRatingDAO().save(rating39);</b>
+<i>366</i>&nbsp;
+<i>367</i>&nbsp;
+<b class="fc"><i>368</i>&nbsp;        ArrayList&lt;SongRating&gt; sr1 = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>369</i>&nbsp;        sr1.add(rating1);</b>
+<b class="fc"><i>370</i>&nbsp;        sr1.add(rating2);</b>
+<b class="fc"><i>371</i>&nbsp;        sr1.add(rating3);</b>
+<b class="fc"><i>372</i>&nbsp;        sr1.add(rating4);</b>
+<b class="fc"><i>373</i>&nbsp;        sr1.add(rating5);</b>
+<b class="fc"><i>374</i>&nbsp;        sr1.add(rating11);</b>
+<b class="fc"><i>375</i>&nbsp;        sr1.add(rating12);</b>
+<b class="fc"><i>376</i>&nbsp;        user1.setSongRatings(sr1);</b>
+<i>377</i>&nbsp;
+<b class="fc"><i>378</i>&nbsp;        ArrayList&lt;SongRating&gt; sr2 = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>379</i>&nbsp;        sr2.add(rating6);</b>
+<b class="fc"><i>380</i>&nbsp;        sr2.add(rating7);</b>
+<b class="fc"><i>381</i>&nbsp;        sr2.add(rating8);</b>
+<b class="fc"><i>382</i>&nbsp;        sr2.add(rating9);</b>
+<b class="fc"><i>383</i>&nbsp;        sr2.add(rating10);</b>
+<b class="fc"><i>384</i>&nbsp;        sr2.add(rating13);</b>
+<b class="fc"><i>385</i>&nbsp;        user2.setSongRatings(sr2);</b>
+<b class="fc"><i>386</i>&nbsp;    }</b>
+<i>387</i>&nbsp;
+<i>388</i>&nbsp;    /**
+<i>389</i>&nbsp;     * getSongDAO
+<i>390</i>&nbsp;     * @return data related to all songs stored in songDAO.
+<i>391</i>&nbsp;     */
+<i>392</i>&nbsp;    public abstract SongDAO getSongDAO();
+<i>393</i>&nbsp;
+<i>394</i>&nbsp;    /**
+<i>395</i>&nbsp;     * getSongRatingDAO
+<i>396</i>&nbsp;     * @return data related to all ratings stored in songRatingDAO.
+<i>397</i>&nbsp;     */
+<i>398</i>&nbsp;
+<i>399</i>&nbsp;    public abstract SongRatingDAO getSongRatingDAO();
+<i>400</i>&nbsp;
+<i>401</i>&nbsp;    /**
+<i>402</i>&nbsp;     * getUserDAO
+<i>403</i>&nbsp;     * @return data related to all users stored in userDAO.
+<i>404</i>&nbsp;     */
+<i>405</i>&nbsp;
+<i>406</i>&nbsp;    public abstract UserDAO getUserDAO();
+<i>407</i>&nbsp;
+<i>408</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-06-08 16:07</div>
+</div>
+</body>
+</html>
